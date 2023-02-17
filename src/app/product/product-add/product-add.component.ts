@@ -14,11 +14,15 @@ export class ProductAddComponent {
   constructor(private productService: ProductService, private router: Router) {
   }
 
-  createProduct(product: Product){
+  createProduct(product: Product) {
     console.log(product);
-    this.productService.save("",product).subscribe()
-    this.router.navigate(["/product"]);
+    this.productService.save("", product).subscribe(() => {
+      this.router.navigate(["/product"]);
+    }, err => {
+      window.alert("err");
+    })
+
   }
 
-  
+
 }

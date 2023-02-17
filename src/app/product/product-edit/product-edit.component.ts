@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductEditComponent {
   public product!: Product
-  
+
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
@@ -26,10 +26,11 @@ export class ProductEditComponent {
     console.log(product);
     let id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
-      this.productService.save(id.toString(), product).subscribe(res=>{
+      this.productService.save(id.toString(), product).subscribe(res => {
         console.log(res)
         this.router.navigate(["/product"]);
-      })
+      }, err => { window.alert("err"); })
     }
   }
 }
+

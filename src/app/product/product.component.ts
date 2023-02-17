@@ -1,7 +1,7 @@
 import { ProductService } from './../services/product.service';
 import { ApiService } from './../services/api.service';
 import { Component } from '@angular/core';
-import {OnInit} from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Product } from '../model/product.model';
 import { Router } from '@angular/router';
 @Component({
@@ -10,27 +10,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  public product!:Product[];
+  public product!: Product[];
 
-  constructor(private productService: ProductService, private router: Router){
+  constructor(private productService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
-    this.productService.get().subscribe((data)=>{
+    this.productService.get().subscribe((data) => {
       this.product = data
     });
   }
 
-  delete(id : number) {
+  delete(id: number) {
     console.log(id)
-    this.productService.delete(id.toString()).subscribe()
+    this.productService.delete(id.toString()).subscribe((r) => {
+      this.productService.get().subscribe((data) => {
+        this.product = data
+      });
+    }, err => {
+      window.alert("err");
+    })
 
-    this.productService.get().subscribe((data)=>{
-      this.product = data
-    });
   }
 
-  redirectToAdd(){
+  redirectToAdd() {
     this.router.navigate(["/product/add"]);
   }
 }
