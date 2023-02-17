@@ -21,7 +21,6 @@ export class ProductAddComponent {
     }, err => {
       window.alert("err");
     })
-
   }
 
 
