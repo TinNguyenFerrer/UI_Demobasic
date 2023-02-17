@@ -18,6 +18,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.productService.get().subscribe((data) => {
       this.product = data
+    }, err => {
+      console.log(err)
     });
   }
 
@@ -30,10 +32,9 @@ export class ProductComponent implements OnInit {
     }, err => {
       window.alert("err");
     })
-
   }
 
-  redirectToAdd() {
+  redirectToAddProduct() {
     this.router.navigate(["/product/add"]);
   }
 }

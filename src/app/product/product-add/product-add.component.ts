@@ -19,6 +19,7 @@ export class ProductAddComponent {
     this.productService.save("", product).subscribe(() => {
       this.router.navigate(["/product"]);
     }, err => {
+      console.log(err)
       window.alert("err");
     })
   }
