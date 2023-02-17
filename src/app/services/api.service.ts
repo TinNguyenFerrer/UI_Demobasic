@@ -7,6 +7,9 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ApiService {
 
+  private httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+}
   constructor(private http: HttpClient) { 
   }
 
@@ -19,9 +22,12 @@ export class ApiService {
   }
 
   put(path: string, body: Object = {}): Observable<any> {
+    
+
     return this.http.put(
       `${environment.api_url}${path}`,
-      JSON.stringify(body)
+      JSON.stringify(body),
+      this.httpOptions
     ).pipe(catchError(this.formatErrors));
   }
 
