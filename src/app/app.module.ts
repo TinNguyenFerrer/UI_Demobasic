@@ -10,6 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { PersonComponent } from './person/person.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { FormsModule } from '@angular/forms';
+import { ProductAddComponent } from './product/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ProductComponent,
     PersonComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +28,10 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     RouterModule.forRoot([
       {path: "product", component: ProductComponent},
-      {path: "**", component: ProductComponent},
       {path: "person", component: PersonComponent},
-      {path: "product/edit/:id", component: ProductEditComponent}
+      {path: "product/add", component: ProductAddComponent},
+      {path: "product/edit/:id", component: ProductEditComponent},
+      {path: "**", component: ProductComponent}
     ])
   ],
   providers: [],

@@ -5,7 +5,7 @@
                 <h2>Product <b>Details</b></h2>
             </div>
             <div class="col-sm-4">
-                <!-- <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> -->
+                    <button type="button" class="btn btn-info add-new" (click)="redirectToAdd()"><i class="fa fa-plus"></i> Add New</button>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 <td>{{item.price}}</td>
                 <td>{{item.quantity}}</td>
                 <td>
-                    <a class="edit" title="Edit" data-toggle="tooltip" [routerLink]= "['./edit',item.id]">
+                    <a class="edit" title="Edit" data-toggle="tooltip" [routerLink]="['./edit',item.id]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-pen-fill" viewBox="0 0 16 16">
                             <path

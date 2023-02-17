@@ -23,14 +23,14 @@ export class ProductService {
     return this.apiService.delete('Product/' + id);
   }
   
-  put(id: string, product: Product): Observable<Product> {
+  save(id: string, product: Product): Observable<Product> {
     // If we're updating an existing
     if (id) {
        return this.apiService.put('Product/' + id, product)
 
     // create new
     } else {
-      return this.apiService.post('Product/', {product: product})
+      return this.apiService.post('Product/', product)
     }
   }
 
