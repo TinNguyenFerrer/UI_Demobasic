@@ -16,7 +16,7 @@
                 <textarea class="form-control" id="descriptionArea" rows="3" formControlName="description" required
                     ngModel></textarea>
             </div>
-            <p *ngIf="(!frmAddProduct.controls.description.valid) && (frmAddProduct.controls.description.dirty|| frmAddProduct.controls.name.touched)"
+            <p *ngIf="(!frmAddProduct.controls.description.valid) && (frmAddProduct.controls.description.dirty|| frmAddProduct.controls.description.touched)"
                 class="text-danger">Name doesn't have content</p>
         </div>
         <div class="mb-3 row">
@@ -24,7 +24,7 @@
             <div class="col-sm-10">
                 <input type="number" id="price" required ngModel formControlName="price">
             </div>
-            <p *ngIf="(!frmAddProduct.controls.quantity.valid) && (frmAddProduct.controls.quantity.dirty|| frmAddProduct.controls.quantity.touched)"
+            <p *ngIf="(!frmAddProduct.controls.price.valid) && (frmAddProduct.controls.price.dirty|| frmAddProduct.controls.price.touched)"
                 class="text-danger">Price not is number</p>
         </div>
         <div class="mb-3 row">

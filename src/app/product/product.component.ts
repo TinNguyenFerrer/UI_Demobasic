@@ -37,4 +37,8 @@ export class ProductComponent implements OnInit {
   redirectToAddProduct() {
     this.router.navigate(["/product/add"]);
   }
+
+  redirectToEditProduct(id: number) {
+    this.router.navigate([`product/edit/${id}`]);
+  }
 }
