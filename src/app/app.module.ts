@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductComponent } from './product/product.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 
 @NgModule({
@@ -23,6 +23,7 @@ import { ProductAddComponent } from './product/product-add/product-add.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: "product", component: ProductComponent},
