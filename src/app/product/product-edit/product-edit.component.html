@@ -5,9 +5,19 @@
             <label for="name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
                 <input type=" text" id="name" formControlName="name" [(ngModel)]="product.name">
+                <div *ngIf="(!frmEditProduct.controls.name.valid) && (frmEditProduct.controls.name.dirty|| frmEditProduct.controls.name.touched)"
+                    class="text-danger">
+                    
+                    <div *ngIf="frmEditProduct.controls.name.errors?.['minlength']">
+                        *Name must be at least 1 characters long.
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.name.errors">
+                        *Name is required.
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmEditProduct.controls.name.valid) && (frmEditProduct.controls.name.dirty|| frmEditProduct.controls.name.touched)"
-                class="text-danger">Name doesn't have content</p>
+            <!-- <p *ngIf="(!frmEditProduct.controls.name.valid) && (frmEditProduct.controls.name.dirty|| frmEditProduct.controls.name.touched)"
+                class="text-danger">Name doesn't have content</p> -->
             <!-- <ng-template #nullProduct></ng-template> -->
             <!-- {{product ? product.name : "Unknown"}} -->
         </div>
@@ -16,8 +26,20 @@
             <div class="col-sm-10">
                 <textarea class="form-control" id="descriptionArea" required rows="3" formControlName="description"
                     [(ngModel)]="product.description"></textarea>
-                    <p *ngIf="(!frmEditProduct.controls.description.valid) && (frmEditProduct.controls.description.dirty|| frmEditProduct.controls.description.touched)"
-                class="text-danger">Name doesn't have content</p>
+                    <div *ngIf="(!frmEditProduct.controls.description.valid) && (frmEditProduct.controls.description.dirty|| frmEditProduct.controls.description.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmEditProduct.controls.description.errors?.['required']">
+                        *Description is required.
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.description.errors?.['minlength']">
+                        *Description must be at least 2 characters long.
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.description.errors?.['maxlength']">
+                        *Description must be at most 800 characters long.
+                    </div>
+                </div>
+                    <!-- <p *ngIf="(!frmEditProduct.controls.description.valid) && (frmEditProduct.controls.description.dirty|| frmEditProduct.controls.description.touched)"
+                class="text-danger">Name doesn't have content</p> -->
                 <!-- <ng-template #nullProduct></ng-template> -->
                 <!-- {{product ? product.name : "Unknown"}} -->
             </div>
@@ -26,9 +48,21 @@
             <label for="price" class="col-sm-2 col-form-label">Price</label>
             <div class="col-sm-10">
                 <input type="number" id="price" [(ngModel)]="product.price" formControlName="price">
+                <div *ngIf="(!frmEditProduct.controls.price.valid) && (frmEditProduct.controls.price.dirty|| frmEditProduct.controls.price.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmEditProduct.controls.price.errors?.['required']">
+                        *Price is required.
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.price.errors?.['min']">
+                        *Pricemust be >=0
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.price.errors?.['max']">
+                        *Price must be <=10000
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmEditProduct.controls.price.valid) && (frmEditProduct.controls.price.dirty|| frmEditProduct.controls.price.touched)"
-                class="text-danger">Price not is number</p>
+            <!-- <p *ngIf="(!frmEditProduct.controls.price.valid) && (frmEditProduct.controls.price.dirty|| frmEditProduct.controls.price.touched)"
+                class="text-danger">Price not is number</p> -->
             <!-- <ng-template #nullProduct></ng-template> -->
             <!-- {{product ? product.name : "Unknown"}} -->
         </div>
@@ -36,9 +70,21 @@
             <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
             <div class="col-sm-10">
                 <input type="number" id="quantity" formControlName="quantity" [(ngModel)]="product.quantity">
+                <div *ngIf="(!frmEditProduct.controls.quantity.valid) && (frmEditProduct.controls.quantity.dirty|| frmEditProduct.controls.quantity.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmEditProduct.controls.quantity.errors?.['required']">
+                        *Quantity is required.
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.quantity.errors?.['min']">
+                        *Pricemust be >=0
+                    </div>
+                    <div *ngIf="frmEditProduct.controls.quantity.errors?.['max']">
+                        *Price must be <=100000
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmEditProduct.controls.quantity.valid) && (frmEditProduct.controls.quantity.dirty|| frmEditProduct.controls.quantity.touched)"
-                class="text-danger">Quantity not is number</p>
+            <!-- <p *ngIf="(!frmEditProduct.controls.quantity.valid) && (frmEditProduct.controls.quantity.dirty|| frmEditProduct.controls.quantity.touched)"
+                class="text-danger">Quantity not is number</p> -->
             <!-- <ng-template #nullProduct></ng-template> -->
             <!-- {{product ? product.name : "Unknown"}} -->
         </div>

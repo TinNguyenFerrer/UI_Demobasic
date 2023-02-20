@@ -5,34 +5,73 @@
             <label for="name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
                 <input type=" text" id="name" required="" formControlName="name">
+                <div *ngIf="(!frmAddProduct.controls.name.valid) && (frmAddProduct.controls.name.dirty|| frmAddProduct.controls.name.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmAddProduct.controls.name.errors">
+                        *Name is required.
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.name.errors?.['minlength']">
+                        *Name must be at least 1 characters long.
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmAddProduct.controls.name.valid) && (frmAddProduct.controls.name.dirty|| frmAddProduct.controls.name.touched)"
-                class="text-danger">Name doesn't have content</p>
 
         </div>
         <div class="mb-3 row">
             <label for="descriptionArea" class="col-sm-2 col-form-label">Desription</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="descriptionArea" rows="3" formControlName="description" required></textarea>
+                <textarea class="form-control" id="descriptionArea" rows="3" formControlName="description"
+                    required></textarea>
+                    
+                <div *ngIf="(!frmAddProduct.controls.description.valid) && (frmAddProduct.controls.description.dirty|| frmAddProduct.controls.description.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmAddProduct.controls.description.errors?.['required']">
+                        *Description is required.
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.description.errors?.['minlength']">
+                        *Description must be at least 2 characters long.
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.description.errors?.['maxlength']">
+                        *Description must be at most 800 characters long.
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmAddProduct.controls.description.valid) && (frmAddProduct.controls.description.dirty|| frmAddProduct.controls.description.touched)"
-                class="text-danger">Name doesn't have content</p>
         </div>
         <div class="mb-3 row">
             <label for="price" class="col-sm-2 col-form-label">Price</label>
             <div class="col-sm-10">
                 <input type="number" id="price" formControlName="price">
+                <div *ngIf="(!frmAddProduct.controls.price.valid) && (frmAddProduct.controls.price.dirty|| frmAddProduct.controls.price.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmAddProduct.controls.price.errors?.['required']">
+                        *Price is required.
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.price.errors?.['min']">
+                        *Pricemust be >=0
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.price.errors?.['max']">
+                        *Price must be <=10000
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmAddProduct.controls.price.valid) && (frmAddProduct.controls.price.dirty|| frmAddProduct.controls.price.touched)"
-                class="text-danger">Price not is number</p>
         </div>
         <div class="mb-3 row">
             <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
             <div class="col-sm-10">
                 <input type="number" id="quantity" formControlName="quantity">
+                <div *ngIf="(!frmAddProduct.controls.quantity.valid) && (frmAddProduct.controls.quantity.dirty|| frmAddProduct.controls.quantity.touched)"
+                    class="text-danger">
+                    <div *ngIf="frmAddProduct.controls.quantity.errors?.['required']">
+                        *Quantity is required.
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.quantity.errors?.['min']">
+                        *Pricemust be >=0
+                    </div>
+                    <div *ngIf="frmAddProduct.controls.quantity.errors?.['max']">
+                        *Price must be <=100000
+                    </div>
+                </div>
             </div>
-            <p *ngIf="(!frmAddProduct.controls.quantity.valid) && (frmAddProduct.controls.quantity.dirty|| frmAddProduct.controls.quantity.touched)"
-                class="text-danger">Quantity not is number</p>
         </div>
         <button type="submit" [disabled]="!frmAddProduct.valid" class="btn btn-primary editProduct_btn">Save</button>
     </div>

@@ -13,9 +13,9 @@ export class ProductEditComponent {
   public product!: Product
   frmEditProduct = new FormGroup({
     name: new FormControl("",[Validators.maxLength(500),Validators.minLength(1),Validators.required]),
-    description: new FormControl("",[Validators.maxLength(800),Validators.minLength(1),Validators.required]),
-    price: new FormControl("",[Validators.max(1000000),Validators.required]),
-    quantity:new FormControl("",[Validators.max(1000),Validators.required])
+    description: new FormControl("",[Validators.maxLength(800),Validators.minLength(2),Validators.required]),
+    price: new FormControl("",[Validators.max(1000000),Validators.required, Validators.min(0)]),
+    quantity:new FormControl("",[Validators.max(1000),Validators.required, Validators.min(0)])
   })
   
   ngOnInit() {
