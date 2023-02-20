@@ -21,8 +21,8 @@
         </thead>
         <tbody *ngFor="let item of product">
             <tr>
-                <td>{{item.name}}</td>
-                <td>{{item.description}}</td>
+                <td>{{item.name | proper}}</td>
+                <td>{{item.description  | proper}}</td>
                 <td>{{item.price}}</td>
                 <td>{{item.quantity}}</td>
                 <td>

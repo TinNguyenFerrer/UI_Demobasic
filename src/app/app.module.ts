@@ -10,6 +10,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProperPipe } from './pipe/proper.pipe';
+import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ProductAddComponent } from './product/product-add/product-add.component
     HeaderComponent,
     ProductComponent,
     ProductEditComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProperPipe,
+    TwoWayBindingComponent,
   ],
   imports: [
     BrowserModule,
