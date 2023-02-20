@@ -2,6 +2,7 @@ import { Product } from './../../model/product.model';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,7 +11,13 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductEditComponent {
   public product!: Product
-
+  frmEditProduct = new FormGroup({
+    name: new FormControl("",[Validators.maxLength(500),Validators.minLength(1),Validators.required]),
+    description: new FormControl("",[Validators.maxLength(800),Validators.minLength(1),Validators.required]),
+    price: new FormControl("",[Validators.max(1000000),Validators.required]),
+    quantity:new FormControl("",[Validators.max(1000),Validators.required])
+  })
+  
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {

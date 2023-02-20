@@ -1,36 +1,48 @@
 <h3>Edit Product</h3>
 <div *ngIf="product" class="editProduct">
-    <div class="mb-3 row">
-        <label for="name" class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-10">
-            <input type=" text" id="name" [(ngModel)]="product.name">
-        </div>
-        <!-- <ng-template #nullProduct></ng-template> -->
-        <!-- {{product ? product.name : "Unknown"}} -->
-    </div>
-    <div class="mb-3 row">
-        <label for="descriptionArea" class="col-sm-2 col-form-label">Desription</label>
-        <div class="col-sm-10">
-            <textarea class="form-control" id="descriptionArea" rows="3" [(ngModel)]="product.description"></textarea>
+    <form [formGroup]="frmEditProduct" (ngSubmit)="edit(product)">
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type=" text" id="name" formControlName="name" [(ngModel)]="product.name">
+            </div>
+            <p *ngIf="(!frmEditProduct.controls.name.valid) && (frmEditProduct.controls.name.dirty|| frmEditProduct.controls.name.touched)"
+                class="text-danger">Name doesn't have content</p>
             <!-- <ng-template #nullProduct></ng-template> -->
             <!-- {{product ? product.name : "Unknown"}} -->
         </div>
-    </div>
-    <div class="mb-3 row">
-        <label for="price" class="col-sm-2 col-form-label">Price</label>
-        <div class="col-sm-10">
-            <input type="number" id="price" [(ngModel)]="product.price">
+        <div class="mb-3 row">
+            <label for="descriptionArea" class="col-sm-2 col-form-label">Desription</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="descriptionArea" required rows="3" formControlName="description"
+                    [(ngModel)]="product.description"></textarea>
+                    <p *ngIf="(!frmEditProduct.controls.description.valid) && (frmEditProduct.controls.description.dirty|| frmEditProduct.controls.description.touched)"
+                class="text-danger">Name doesn't have content</p>
+                <!-- <ng-template #nullProduct></ng-template> -->
+                <!-- {{product ? product.name : "Unknown"}} -->
+            </div>
         </div>
-        <!-- <ng-template #nullProduct></ng-template> -->
-        <!-- {{product ? product.name : "Unknown"}} -->
-    </div>
-    <div class="mb-3 row">
-        <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
-        <div class="col-sm-10">
-            <input type="number" id="quantity" [(ngModel)]="product.quantity">
+        <div class="mb-3 row">
+            <label for="price" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+                <input type="number" id="price" [(ngModel)]="product.price" formControlName="price">
+            </div>
+            <p *ngIf="(!frmEditProduct.controls.price.valid) && (frmEditProduct.controls.price.dirty|| frmEditProduct.controls.price.touched)"
+                class="text-danger">Price not is number</p>
+            <!-- <ng-template #nullProduct></ng-template> -->
+            <!-- {{product ? product.name : "Unknown"}} -->
         </div>
-        <!-- <ng-template #nullProduct></ng-template> -->
-        <!-- {{product ? product.name : "Unknown"}} -->
-    </div>
-    <button type="button" class="btn btn-primary editProduct_btn" (click)="edit(product)">Save</button>
+        <div class="mb-3 row">
+            <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+            <div class="col-sm-10">
+                <input type="number" id="quantity" formControlName="quantity" [(ngModel)]="product.quantity">
+            </div>
+            <p *ngIf="(!frmEditProduct.controls.quantity.valid) && (frmEditProduct.controls.quantity.dirty|| frmEditProduct.controls.quantity.touched)"
+                class="text-danger">Quantity not is number</p>
+            <!-- <ng-template #nullProduct></ng-template> -->
+            <!-- {{product ? product.name : "Unknown"}} -->
+        </div>
+        <button type="button" class="btn btn-primary editProduct_btn" (click)="edit(product)"
+            [disabled]="!frmEditProduct.valid">Save</button>
+    </form>
 </div>
