@@ -29,7 +29,7 @@
         <div class="mb-3 row">
             <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
             <div class="col-sm-10">
-                <input type="number" id="quantity" required formControlName="quantity">
+                <input type="number" id="quantity" requireds formControlName="quantity">
             </div>
             <p *ngIf="(!frmAddProduct.controls.quantity.valid) && (frmAddProduct.controls.quantity.dirty|| frmAddProduct.controls.quantity.touched)"
                 class="text-danger">Quantity not is number</p>
