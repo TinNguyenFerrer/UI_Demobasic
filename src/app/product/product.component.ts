@@ -1,8 +1,8 @@
-import { ProductService } from './../services/product.service';
-import { ApiService } from './../services/api.service';
+import { ProductService } from 'src/app/core/product.service';
+import { ApiService } from 'src/app/core/api.service';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { Product } from '../model/product.model';
+import { Product } from 'src/app/shared/model/product.model';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-product',

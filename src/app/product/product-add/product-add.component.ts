@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
-import { Product } from 'src/app/model/product.model';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/shared/model/product.model';
+import { ProductService } from 'src/app/core/product.service';
 
 @Component({
   selector: 'app-product-add',

@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./two-way-binding.component.css']
 })
 export class TwoWayBindingComponent {
-  userName!: any;
+  userName: string = '';
 
   constructor(){}
 
-  getValue( event: Event): any {
+  getValue( event: Event): string {
     console.log( event)
     console.log( this.userName )
     return (event.target as HTMLInputElement).value;

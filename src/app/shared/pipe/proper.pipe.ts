@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ProperPipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): any {
+    //console.log(args)
     if(!value){
       return value
     }
