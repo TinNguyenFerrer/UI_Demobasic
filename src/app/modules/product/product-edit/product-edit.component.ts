@@ -1,7 +1,7 @@
 import { Product } from 'src/app/shared/model/product.model';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'src/app/core/product.service';
+import { ProductService } from 'src/app/core/http/product/product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -12,10 +12,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProductEditComponent {
   public product?: Product
   frmEditProduct = new FormGroup({
-    name: new FormControl("",[Validators.maxLength(500),Validators.minLength(1),Validators.required]),
-    description: new FormControl("",[Validators.maxLength(800),Validators.minLength(2),Validators.required]),
-    price: new FormControl("",[Validators.max(1000000),Validators.required, Validators.min(0)]),
-    quantity:new FormControl("",[Validators.max(1000),Validators.required, Validators.min(0)])
+    name: new FormControl("", [Validators.maxLength(500), Validators.minLength(1), Validators.required]),
+    description: new FormControl("", [Validators.maxLength(800), Validators.minLength(2), Validators.required]),
+    price: new FormControl("", [Validators.max(1000000), Validators.required, Validators.min(0)]),
+    quantity:new FormControl("", [Validators.max(1000), Validators.required, Validators.min(0)]),
   })
   
   ngOnInit() {
@@ -27,8 +27,9 @@ export class ProductEditComponent {
       });
     }
   }
-  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) {
-  }
+
+  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) {}
+
   edit(product: Product): void {
     console.log(product);
     let id = this.route.snapshot.paramMap.get('id');

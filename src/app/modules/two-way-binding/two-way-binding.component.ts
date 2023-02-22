@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class TwoWayBindingComponent {
   userName: string = '';
 
-  constructor(){}
+  constructor() {}
 
   getValue( event: Event): string {
     console.log( event)

@@ -1,5 +1,5 @@
-import { ProductService } from 'src/app/core/product.service';
-import { ApiService } from 'src/app/core/api.service';
+import { ProductService } from 'src/app/core/http/product/product.service';
+import { ApiService } from 'src/app/core/http/api.service';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/model/product.model';

@@ -2,7 +2,7 @@
     display: block;
     position: relative;
     /* height: 60px; */
-    background-image: url(../../assets/image/background_header.jpg);
+    background-image: url(/assets/image/background_header.jpg);
     padding-top: 130px;
     padding-bottom: 145px;
 }
