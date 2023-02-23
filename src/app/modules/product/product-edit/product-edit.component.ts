@@ -37,7 +37,7 @@ export class ProductEditComponent {
       this.productService.save(id.toString(), product).subscribe(res => {
         console.log(res)
         this.router.navigate(["/product"]);
-      }, err => { window.alert("err"); })
+      })
     }
   }
 }

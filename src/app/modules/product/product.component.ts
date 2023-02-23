@@ -18,8 +18,6 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.productService.get().subscribe((data) => {
       this.product = data
-    }, err => {
-      console.log(err)
     });
   }
 
@@ -29,8 +27,6 @@ export class ProductComponent implements OnInit {
       this.productService.get().subscribe((data) => {
         this.product = data
       });
-    }, err => {
-      window.alert("err");
     })
   }
 
