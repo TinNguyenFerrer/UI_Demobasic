@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductAddComponent } from './modules/product/product-add/product-add.component';
 import { ProperPipe } from 'src/app/shared/pipe/proper.pipe';
 import { TwoWayBindingComponent } from './modules/two-way-binding/two-way-binding.component';
+import { ParentComponent } from './modules/parent/parent.component';
+import { ChillComponent } from './modules/chill/chill.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { TwoWayBindingComponent } from './modules/two-way-binding/two-way-bindin
     ProductAddComponent,
     ProperPipe,
     TwoWayBindingComponent,
+    ParentComponent,
+    ChillComponent,
   ],
   imports: [
     BrowserModule,
