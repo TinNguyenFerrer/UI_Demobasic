@@ -14,6 +14,8 @@ import { ProperPipe } from 'src/app/shared/pipe/proper.pipe';
 import { TwoWayBindingComponent } from './modules/two-way-binding/two-way-binding.component';
 import { ParentComponent } from './modules/parent/parent.component';
 import { ChillComponent } from './modules/chill/chill.component';
+import { TwoWayBinding2Component } from './modules/two-way-binding2/two-way-binding2.component';
+import { InputBindingComponent } from './modules/two-way-binding2/input-binding/input-binding.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ChillComponent } from './modules/chill/chill.component';
     TwoWayBindingComponent,
     ParentComponent,
     ChillComponent,
+    TwoWayBinding2Component,
+    InputBindingComponent,
   ],
   imports: [
     BrowserModule,
