@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class TwoWayBinding2Component {
   valueBinding: string = '3'
-
 }
